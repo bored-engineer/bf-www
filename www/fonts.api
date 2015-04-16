@@ -1,0 +1,21 @@
+<?php
+
+// Allow CORS requests
+header("Access-Control-Allow-Origin: *");
+
+// Response is text
+header("Content-type: text/plain");
+
+// Parse in the POST data as JSON
+$data = json_decode(file_get_contents('php://input'));
+
+// Write to a file
+$fonts = fopen('/var/log/api/fonts.json', 'a');
+fwrite($fonts, json_encode(array(
+	"_time" => time(),
+	"track" => $_COOKIE['track'],
+	"fonts" => explode(",", $data->fonts)
+))."\n");
+fclose($fonts);
+
+?>

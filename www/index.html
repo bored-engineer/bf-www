@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Project Bitfl1p</title>
+    <!-- bootstrap.min.css -->
+    <style>
+    /*!
+     * Bootstrap v3.2.0 (http://getbootstrap.com)
+     * Copyright 2011-2014 Twitter, Inc.
+     * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+     */
+    /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+    html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+    body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
+    a{background:0 0}a:active,a:hover{outline:0}
+    b,strong{font-weight:700}
+    h1{margin:.67em 0;font-size:2em}
+    table{border-spacing:0;border-collapse:collapse}
+    td,th{padding:0}
+    *{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+    :before,:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+    html{font-size:10px;-webkit-tap-highlight-color:rgba(0,0,0,0)}
+    body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;line-height:1.42857143;color:#333;background-color:#fff}
+    a:hover,a:focus{color:#2a6496;text-decoration:underline}
+    a:focus{outline:thin dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}
+    h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{font-family:inherit;font-weight:500;line-height:1.1;color:inherit}
+    h1 small,h2 small,h3 small,h4 small,h5 small,h6 small,.h1 small,.h2 small,.h3 small,.h4 small,.h5 small,.h6 small,h1 .small,h2 .small,h3 .small,h4 .small,h5 .small,h6 .small,.h1 .small,.h2 .small,.h3 .small,.h4 .small,.h5 .small,.h6 .small{font-weight:400;line-height:1;color:#777}
+    h1,.h1,h2,.h2,h3,.h3{margin-top:20px;margin-bottom:10px}
+    h1 small,.h1 small,h2 small,.h2 small,h3 small,.h3 small,h1 .small,.h1 .small,h2 .small,.h2 .small,h3 .small,.h3 .small{font-size:65%}
+    h4,.h4,h5,.h5,h6,.h6{margin-top:10px;margin-bottom:10px}h4 small,.h4 small,h5 small,.h5 small,h6 small,.h6 small,h4 .small,.h4 .small,h5 .small,.h5 .small,h6 .small,.h6 .small{font-size:75%}
+    h1,.h1{font-size:36px}h2,.h2{font-size:30px}h3,.h3{font-size:24px}h4,.h4{font-size:18px}h5,.h5{font-size:14px}h6,.h6{font-size:12px}
+    p{margin:0 0 10px}
+    .lead{margin-bottom:20px;font-size:16px;font-weight:300;line-height:1.4}
+    @media (min-width:768px){
+        .lead{font-size:21px}
+    }
+    ul,ol{margin-top:0;margin-bottom:10px}
+    ul ul,ol ul,ul ol,ol ol{margin-bottom:0}
+    .list-unstyled{padding-left:0;list-style:none}
+    .list-inline{padding-left:0;margin-left:-5px;list-style:none}
+    .list-inline>li{display:inline-block;padding-right:5px;padding-left:5px}
+    .container{padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}
+    @media (min-width:768px){
+        .container{width:750px}
+    }
+    @media (min-width:992px){
+        .container{width:970px}
+    }
+    @media (min-width:1200px){
+        .container{width:1170px}
+    }
+    table{background-color:transparent}
+    th{text-align:left}
+    .table{width:100%;max-width:100%;margin-bottom:20px}
+    .table>thead>tr>th,.table>tbody>tr>th,.table>tfoot>tr>th,.table>thead>tr>td,.table>tbody>tr>td,.table>tfoot>tr>td{padding:8px;line-height:1.42857143;vertical-align:top;border-top:1px solid #ddd}
+    .table>thead>tr>th{vertical-align:bottom;border-bottom:2px solid #ddd}
+    .table>caption+thead>tr:first-child>th,.table>colgroup+thead>tr:first-child>th,.table>thead:first-child>tr:first-child>th,.table>caption+thead>tr:first-child>td,.table>colgroup+thead>tr:first-child>td,.table>thead:first-child>tr:first-child>td{border-top:0}
+    .table>tbody+tbody{border-top:2px solid #ddd}.table .table{background-color:#fff}
+    .table-condensed>thead>tr>th,.table-condensed>tbody>tr>th,.table-condensed>tfoot>tr>th,.table-condensed>thead>tr>td,.table-condensed>tbody>tr>td,.table-condensed>tfoot>tr>td{padding:5px}
+    .table-bordered{border:1px solid #ddd}
+    .table-bordered>thead>tr>th,.table-bordered>tbody>tr>th,.table-bordered>tfoot>tr>th,.table-bordered>thead>tr>td,.table-bordered>tbody>tr>td,.table-bordered>tfoot>tr>td{border:1px solid #ddd}.table-bordered>thead>tr>th,.table-bordered>thead>tr>td{border-bottom-width:2px}
+    .table-striped>tbody>tr:nth-child(odd)>td,.table-striped>tbody>tr:nth-child(odd)>th{background-color:#f9f9f9}.table-hover>tbody>tr:hover>td,.table-hover>tbody>tr:hover>th{background-color:#f5f5f5}
+    table col[class*=col-]{position:static;display:table-column;float:none}table td[class*=col-],table th[class*=col-]{position:static;display:table-cell;float:none}
+    .table>thead>tr>td.active,.table>tbody>tr>td.active,.table>tfoot>tr>td.active,.table>thead>tr>th.active,.table>tbody>tr>th.active,.table>tfoot>tr>th.active,.table>thead>tr.active>td,.table>tbody>tr.active>td,.table>tfoot>tr.active>td,.table>thead>tr.active>th,.table>tbody>tr.active>th,.table>tfoot>tr.active>th{background-color:#f5f5f5}
+    .table-hover>tbody>tr>td.active:hover,.table-hover>tbody>tr>th.active:hover,.table-hover>tbody>tr.active:hover>td,.table-hover>tbody>tr:hover>.active,.table-hover>tbody>tr.active:hover>th{background-color:#e8e8e8}
+    .table>thead>tr>td.success,.table>tbody>tr>td.success,.table>tfoot>tr>td.success,.table>thead>tr>th.success,.table>tbody>tr>th.success,.table>tfoot>tr>th.success,.table>thead>tr.success>td,.table>tbody>tr.success>td,.table>tfoot>tr.success>td,.table>thead>tr.success>th,.table>tbody>tr.success>th,.table>tfoot>tr.success>th{background-color:#dff0d8}
+    .table-hover>tbody>tr>td.success:hover,.table-hover>tbody>tr>th.success:hover,.table-hover>tbody>tr.success:hover>td,.table-hover>tbody>tr:hover>.success,.table-hover>tbody>tr.success:hover>th{background-color:#d0e9c6}
+    .table>thead>tr>td.info,.table>tbody>tr>td.info,.table>tfoot>tr>td.info,.table>thead>tr>th.info,.table>tbody>tr>th.info,.table>tfoot>tr>th.info,.table>thead>tr.info>td,.table>tbody>tr.info>td,.table>tfoot>tr.info>td,.table>thead>tr.info>th,.table>tbody>tr.info>th,.table>tfoot>tr.info>th{background-color:#d9edf7}
+    .table-hover>tbody>tr>td.info:hover,.table-hover>tbody>tr>th.info:hover,.table-hover>tbody>tr.info:hover>td,.table-hover>tbody>tr:hover>.info,.table-hover>tbody>tr.info:hover>th{background-color:#c4e3f3}
+    .table>thead>tr>td.warning,.table>tbody>tr>td.warning,.table>tfoot>tr>td.warning,.table>thead>tr>th.warning,.table>tbody>tr>th.warning,.table>tfoot>tr>th.warning,.table>thead>tr.warning>td,.table>tbody>tr.warning>td,.table>tfoot>tr.warning>td,.table>thead>tr.warning>th,.table>tbody>tr.warning>th,.table>tfoot>tr.warning>th{background-color:#fcf8e3}
+    .table-hover>tbody>tr>td.warning:hover,.table-hover>tbody>tr>th.warning:hover,.table-hover>tbody>tr.warning:hover>td,.table-hover>tbody>tr:hover>.warning,.table-hover>tbody>tr.warning:hover>th{background-color:#faf2cc}
+    .table>thead>tr>td.danger,.table>tbody>tr>td.danger,.table>tfoot>tr>td.danger,.table>thead>tr>th.danger,.table>tbody>tr>th.danger,.table>tfoot>tr>th.danger,.table>thead>tr.danger>td,.table>tbody>tr.danger>td,.table>tfoot>tr.danger>td,.table>thead>tr.danger>th,.table>tbody>tr.danger>th,.table>tfoot>tr.danger>th{background-color:#f2dede}
+    .table-hover>tbody>tr>td.danger:hover,.table-hover>tbody>tr>th.danger:hover,.table-hover>tbody>tr.danger:hover>td,.table-hover>tbody>tr:hover>.danger,.table-hover>tbody>tr.danger:hover>th{background-color:#ebcccc}
+    </style>
+    <!-- Custom -->
+    <style>
+      .page-header {
+        text-align: center;
+      }
+      h1 {
+        font-size: 100px;
+      }
+      h3 {
+        margin-top: 40px;
+        font-size: 36px;
+      }
+      table, th {
+        text-align: center;
+      }
+    </style>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <h1>Project Bitfl1p</h1>
+        <p class="lead">Objective: Detect and analyze the frequency of bit flips for an average internet user through the use of <a href="http://dinaburg.org/bitsquatting.html">bitsquatting</a>.</p>
+      </div>
+      <h3>What are bitflips?</h3>
+      <p class="lead">Bitflips occur when a <i>bit</i> in memory <i>flips</i> it's value. For example when your browser attempts to resolve <b>example.com</b> it stores the string in memory as:</p>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>e</th>
+            <th>x</th>
+            <th>a</th>
+            <th>m</th>
+            <th>p</th>
+            <th>l</th>
+            <th>e</th>
+            <th>.</th>
+            <th>c</th>
+            <th>o</th>
+            <th>m</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>01100101</td>
+            <td>01111000</td>
+            <td>01100001</td>
+            <td>01101101</td>
+            <td>01110000</td>
+            <td>01101100</td>
+            <td>01100101</td>
+            <td>00101110</td>
+            <td>01100011</td>
+            <td>01101111</td>
+            <td>01101101</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="lead">If one of those bits flips to the opposite value the domain will change. For example, if the 4th bit in the first byte changes from a 0 to a 1, the string will look like this:</p>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>u</th>
+            <th>x</th>
+            <th>a</th>
+            <th>m</th>
+            <th>p</th>
+            <th>l</th>
+            <th>e</th>
+            <th>.</th>
+            <th>c</th>
+            <th>o</th>
+            <th>m</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>01110101</td>
+            <td>01111000</td>
+            <td>01100001</td>
+            <td>01101101</td>
+            <td>01110000</td>
+            <td>01101100</td>
+            <td>01100101</td>
+            <td>00101110</td>
+            <td>01100011</td>
+            <td>01101111</td>
+            <td>01101101</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="lead">As you can see the domain has changed to <b>uxample.com</b>. In most cases, these domains are not registered and the request silently fails.
+      <p class="lead">For furthur information about bit flips I highly recommend Robert Stucke's DEFCON 21 talk <a href="https://www.youtube.com/watch?v=ZPbyDSvGasw">"DNS May Be Hazardous to Your Health"</a> and Artem Dinaburg's DEFCON 19 talk <a href="https://www.youtube.com/watch?v=9WcHsT97suU">Bit-squatting: DNS Hijacking Without Exploitation</a>.</p>
+      <h3>What is Project Bitfl1p?</h3>
+      <p class="lead">Project Bitfl1p is an attempt to gather information about how common bit flips are as well as what environments they most commonly occur in. To reach this goal, I've registered hundreds of bit flipped domains for common sites on the internet. When a request is received, the information about the request is logged and, where applicable, returned with additional tracking scripts to gather information about the environment of the user.</p>
+      <h3>Couldn't this be used for malicous purposes?</h3>
+      <p class="lead">Bit flips can occur for any domains, including domains such as banking sites, health care systems, among many others. I've taken care to avoid these sites when purchasing domains so that none of this information ever comes in contact with the Project Bitfl1p servers if possible. However, it's still possible that the domains in use currently could contain sensitive data. As such, I'd like to publicly state that Project Bitfl1p analytics.js will never do any of the following:</p>
+      <ul>
+        <li><p class="lead">Log any information about the page it was included into other than the title, referrer and url.</p></li>
+        <li><p class="lead">Log plaintext values of cookies.</p></li>
+        <li><p class="lead">Redirect users to any type of file download.</p></li>
+      </ul>
+      <h3>What kind of analytics are being collecting?</h3>
+      <p class="lead">There are multiple levels of logging in use server-side depending on the type of request.</p>
+      <p class="lead">When a DNS query is received from a recursive DNS resolver (typically a user's ISP) the exact query is logged. A response is sent back to the client with the corresponding record pointing to the Project Bitfl1p server.</p>
+      <p class="lead">If a HTTPS request is received the server will act internally as a <a href="http://en.wikipedia.org/wiki/SSL_termination_proxy">SSL termination proxy</a> logging the information then forwarding the request to the HTTP server.</p>
+      <p class="lead">If a HTTP request is received the server will log the entire request including the path requested and any headers that are sent with the request. The server response will vary depending on a variety of factors:</p>
+      <p class="lead">If Javascript is requested, the custom analytics.js will be returned. This script attempts to gather information about the user's computer such as OS, screen size, etc as well as information about the domain the script was included into such as the title, url, etc. This information will be used to correlate how common bit flips are in specific OS configurations.</p>
+      <p class="lead">If a HTML page is requested, a response will be returned that attempts to include the analytics.js script.</p>
+      <p class="lead">If a Image is requested, a 1x1 pixel gif will be returned.</p>
+      <p class="lead">Additionally the Project Bitfl1p server is running the <a href="https://www.bro.org/">Bro Network Security Monitor</a> which may log additionally information for other protocols such as SSH, SMTP, IMAP, etc.</p>
+      <p class="lead">Please note that the above information in no way defines exactly what is collected. I will try my best to keep this accurate, but it may change at any time and may not be 100% accurate.</p>
+      <h3>What are you doing different?</h3>
+      <p class="lead">Okay great, this sounds like a fun project, but how is it any different from the work done by Artem Dinaburg or Robert Stucke? Project Bitfl1p differs in quite a few ways from the previous work, but can be adequately summarized by saying Project Bitfl1p is bigger and better. I won't discuss every difference at this time, however a quick overview:</p>
+      <p class="lead">As part of Project Bitfl1p I've purchased hundreds of domains which means more traffic for analysis.</p>
+      <p class="lead">DNS Queries are answered with both IPv4 and IPv6 addresses and also use unique addresses in order to collect more data.</p>
+      <p class="lead">Wildcard SSL certificates have been purchased to help collect more data for HTTPS traffic.</p>
+      <p class="lead">The analytics.js has been built to help collect more information about the clients that make connections to Project Bitfl1p.</p>
+      <h3>How can I help?</h3>
+      <p class="lead">Domains and SSL certificates are expensive, a donation of a few dollars can go a long way. You can send me bitcoin at address <a href="https://blockchain.info/address/14sKhVNSC4kWPPgiaSU7u49ukECLRvd7iF">14sKhVNSC4kWPPgiaSU7u49ukECLRvd7iF</a> or send me a few dollars on paypal at <a href="https://www.paypal.com/us/cgi-bin/webscr?cmd=_send-money&nav=1&email=paypal@hydrantlabs.org">paypal@hydrantlabs.org</a>.</p>
+      <h3>How can I contact you?</h3>
+      <p class="lead">I've made no attempts to hide my identity for this project. My contact info can be found in the whois information of all domains I have purchased including this one. If you've got a question, comment, or legal threat please send it to <a href="mailto:luke@hydrantlabs.org">luke@hydrantlabs.org</a>.</p>
+      <br /><br />
+    </div>
+  </body>
+</html>

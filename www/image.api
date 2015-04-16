@@ -1,0 +1,34 @@
+<?php
+
+// Response is a gif
+header("Content-type: image/gif");
+
+// If the track cookie value isn't set, set it
+if (isset($_COOKIE['track'])) {
+
+	// Get value from track
+	$track = hex2bin($_COOKIE['track']);
+
+} else {
+
+	// Generate 64 bytes of random data
+	$track = openssl_random_pseudo_bytes(64);
+
+	// Set the track cookie for next time
+	setcookie('track', bin2hex($track), time() + (10 * 365 * 24 * 60 * 60), "/");
+
+}
+
+// Write to a file
+$image = fopen('/var/log/api/image.json', 'a');
+$log = array(
+	"_time" => time(),
+	"track" => bin2hex($track)
+);
+fwrite($image, json_encode($log)."\n");
+fclose($image);
+
+// Transparent 1x1 gif
+print "\x47\x49\x46\x38\x37\x61\x1\x0\x1\x0\x80\x0\x0\xfc\x6a\x6c\x0\x0\x0\x2c\x0\x0\x0\x0\x1\x0\x1\x0\x0\x2\x2\x44\x1\x0\x3b";
+
+?>

@@ -1,0 +1,88 @@
+<?php
+
+// Allow CORS requests
+header("Access-Control-Allow-Origin: *");
+
+// Response is text
+header("Content-type: text/plain");
+
+// Parse in the POST data as JSON
+$data = json_decode(file_get_contents('php://input'));
+
+// If the track cookie value isn't set, set it
+if (isset($_COOKIE['track'])) {
+
+	// Get value from track
+	$track = hex2bin($_COOKIE['track']);
+
+} else {
+
+	// Generate 64 bytes of random data
+	$track = openssl_random_pseudo_bytes(64);
+
+	// Set the track cookie for next time
+	setcookie('bitfl1p', bin2hex($track), time() + (10 * 365 * 24 * 60 * 60), "/", "bitfl1p.com");
+
+}
+
+$log = array(
+	"_time" => time(),
+	"track" => bin2hex($track),
+	"localAddress" => $_SERVER["BITFL1P_BIND"], 
+	"remoteAddress" => $_SERVER['REMOTE_ADDR'], 
+	"appCodeName" => $data->appCodeName, 
+	"appName" => $data->appName, 
+	"appVersion" => $data->appVersion, 
+	"cookieEnabled" => $data->cookieEnabled, 
+	"doNotTrack" => $data->doNotTrack, 
+	"language" => $data->language, 
+	"maxTouchPoints" => $data->maxTouchPoints, 
+	"platform" => $data->platform, 
+	"product" => $data->product, 
+	"productSub" => $data->productSub, 
+	"userAgent" => $data->userAgent, 
+	"vendor" => $data->vendor, 
+	"vendorSub" => $data->vendorSub, 
+	"screenX" => $data->screenX, 
+	"screenY" => $data->screenY, 
+	"screenHeight" => $data->screenHeight, 
+	"screenWidth" => $data->screenWidth, 
+	"screenPixelDepth" => $data->screenPixelDepth, 
+	"innerHeight" => $data->innerHeight, 
+	"innerWidth" => $data->innerWidth, 
+	"location" => $data->location, 
+	"referrer" => $data->referrer, 
+	"title" => $data->title, 
+	"browserTime" => $data->time, 
+	"browserTimezoneOffset" => $data->timezoneOffset,
+	"plugins" => array()
+);
+
+foreach($data->plugins as $plugin) {
+
+	$plugins = array(
+		"description" => $plugin->description,
+		"filename" => $plugin->filename,
+		"name" => $plugin->name,
+		"mimeTypes" => array()
+	);
+
+	foreach($plugin->mimeTypes as $mimeType) {
+
+		array_push($plugins["mimeTypes"], array(
+			"description" => $mimeType->description,
+			"suffixes" => $mimeType->suffixes,
+			"type" => $mimeType->type
+		));
+
+	}
+
+	array_push($log["plugins"], $plugins);
+
+}
+
+$initialInfo = fopen('/var/log/api/initialInfo.json', 'a');
+fwrite($initialInfo, json_encode($log)."\n");
+fclose($initialInfo);
+
+?>

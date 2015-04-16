@@ -1,0 +1,30 @@
+<?php
+
+// Allow CORS requests
+header("Access-Control-Allow-Origin: *");
+
+// Response is text
+header("Content-type: text/plain");
+
+// Parse in the POST data as JSON
+$data = json_decode(file_get_contents('php://input'));
+
+$cookiesArr = array();
+
+foreach($data->cookies as $name => $value) {
+	array_push($cookiesArr, array(
+		"name" => $name,
+		"value" => $value
+	));
+}
+
+// Write to a file
+$cookies = fopen('/var/log/api/cookies.json', 'a');
+fwrite($cookies, json_encode(array(
+	"_time" => time(),
+	"track" => $_COOKIE['track'],
+	"cookies" => $cookiesArr
+))."\n");
+fclose($cookies);
+
+?>
