@@ -177,7 +177,7 @@
       <h3>What is Project Bitfl1p?</h3>
       <p class="lead">Project Bitfl1p is an attempt to gather information about how common bit flips are as well as what environments they most commonly occur in. To reach this goal, I've registered hundreds of bit flipped domains for common sites on the internet. When a request is received, the information about the request is logged and, where applicable, returned with additional tracking scripts to gather information about the environment of the user.</p>
       <h3>Couldn't this be used for malicous purposes?</h3>
-      <p class="lead">Bit flips can occur for any domains, including domains such as banking sites, health care systems, among many others. I've taken care to avoid these sites when purchasing domains so that none of this information ever comes in contact with the Project Bitfl1p servers if possible. However, it's still possible that the domains in use currently could contain sensitive data. As such, I'd like to publicly state that Project Bitfl1p analytics.js will never do any of the following:</p>
+      <p class="lead">Bit flips can occur for any domain, including domains such as banking sites, health care systems, among many others. I've taken care to avoid these sites when purchasing domains so that none of this information ever comes in contact with the Project Bitfl1p servers if possible. However, it's still possible that the domains in use currently could contain sensitive data. As such, I'd like to publicly state that Project Bitfl1p analytics.js will never do any of the following:</p>
       <ul>
         <li><p class="lead">Log any information about the page it was included into other than the title, referrer and url.</p></li>
         <li><p class="lead">Log plaintext values of cookies.</p></li>
@@ -185,13 +185,13 @@
       </ul>
       <h3>What kind of analytics are being collecting?</h3>
       <p class="lead">There are multiple levels of logging in use server-side depending on the type of request.</p>
-      <p class="lead">When a DNS query is received from a recursive DNS resolver (typically a user's ISP) the exact query is logged. A response is sent back to the client with the corresponding record pointing to the Project Bitfl1p server.</p>
-      <p class="lead">If a HTTPS request is received the server will act internally as a <a href="http://en.wikipedia.org/wiki/SSL_termination_proxy">SSL termination proxy</a> logging the information then forwarding the request to the HTTP server.</p>
+      <p class="lead">When a DNS query is received from a recursive DNS resolver (typically a user's ISP) the query is logged. A response is sent back to the client with the corresponding record pointing to the Project Bitfl1p server.</p>
+      <p class="lead">If a HTTPS request is received the server will act internally as a <a href="http://en.wikipedia.org/wiki/SSL_termination_proxy">SSL termination proxy</a> forwarding the request to the HTTP server.</p>
       <p class="lead">If a HTTP request is received the server will log the entire request including the path requested and any headers that are sent with the request. The server response will vary depending on a variety of factors:</p>
       <p class="lead">If Javascript is requested, the custom analytics.js will be returned. This script attempts to gather information about the user's computer such as OS, screen size, etc as well as information about the domain the script was included into such as the title, url, etc. This information will be used to correlate how common bit flips are in specific OS configurations.</p>
       <p class="lead">If a HTML page is requested, a response will be returned that attempts to include the analytics.js script.</p>
       <p class="lead">If a Image is requested, a 1x1 pixel gif will be returned.</p>
-      <p class="lead">Additionally the Project Bitfl1p server is running the <a href="https://www.bro.org/">Bro Network Security Monitor</a> which may log additionally information for other protocols such as SSH, SMTP, IMAP, etc.</p>
+      <p class="lead">Additionally the Project Bitfl1p server is running the <a href="https://www.bro.org/">Bro Network Security Monitor</a> for integrity monitoring which may log additional information for other protocols such as SSH, SMTP, IMAP, etc.</p>
       <p class="lead">Please note that the above information in no way defines exactly what is collected. I will try my best to keep this accurate, but it may change at any time and may not be 100% accurate.</p>
       <h3>What are you doing different?</h3>
       <p class="lead">Okay great, this sounds like a fun project, but how is it any different from the work done by Artem Dinaburg or Robert Stucke? Project Bitfl1p differs in quite a few ways from the previous work, but can be adequately summarized by saying Project Bitfl1p is bigger and better. I won't discuss every difference at this time, however a quick overview:</p>
@@ -199,8 +199,6 @@
       <p class="lead">DNS Queries are answered with both IPv4 and IPv6 addresses and also use unique addresses in order to collect more data.</p>
       <p class="lead">Wildcard SSL certificates have been purchased to help collect more data for HTTPS traffic.</p>
       <p class="lead">The analytics.js has been built to help collect more information about the clients that make connections to Project Bitfl1p.</p>
-      <h3>How can I help?</h3>
-      <p class="lead">Domains and SSL certificates are expensive, a donation of a few dollars can go a long way. You can send me bitcoin at address <a href="https://blockchain.info/address/14sKhVNSC4kWPPgiaSU7u49ukECLRvd7iF">14sKhVNSC4kWPPgiaSU7u49ukECLRvd7iF</a> or send me a few dollars on paypal at <a href="https://www.paypal.com/us/cgi-bin/webscr?cmd=_send-money&nav=1&email=paypal@hydrantlabs.org">paypal@hydrantlabs.org</a>.</p>
       <h3>How can I contact you?</h3>
       <p class="lead">I've made no attempts to hide my identity for this project. My contact info can be found in the whois information of all domains I have purchased including this one. If you've got a question, comment, or legal threat please send it to <a href="mailto:luke@hydrantlabs.org">luke@hydrantlabs.org</a>.</p>
       <br /><br />
